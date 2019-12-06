@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Result</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div ></div>
+    <nav class="navbar navbar-expand navbar-light shadow" style = "margin: 5px;border-radius: 5px">
+
+            <form class="form-inline col-md-6" >
+                <a class="btn btn-outline-info my-2 my-sm-0"  style = "margin: 5px" [routerLink]="['/homepage']"  ><i class="fab fa-facebook-f fa-fw"></i>Home Page</a>
+            </form>
+            <form class="form-inline col-md-6">
+              <button class="btn btn-outline-primary my-2 my-sm-0"  style = "margin: 5px" (click)="sigoutfacebook()"  ><i class="fab fa-facebook-f fa-fw"></i>Logout</button>
+              <a class=""role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img class="img-profile rounded-circle resize " src ="{{img}}"  >
+                  <span class="mr-2 d-none d-lg-inline">{{userName}}</span>
+              </a>
+            </form>
+
+    </nav>
+    <div class="limiter">
+		<div class="container-table100">
+               
+			<div class="wrap-table100">
+				<div class="table100" *ngIf="showHis===false" >
+					<table>
+						<thead>
+							<tr class="table100-head" >
+								
+								<th class="column2" style="text-align:center">Question</th>
+								<th class="column3" style="text-align:center" >Your Choosen</th>
+							</tr>
+                        </thead>
+                        <tbody>
+								<tr *ngFor="let items of ans,let i = index">
+                                    <th class="column2" style="text-align:center">Question&nbsp;{{i+1}}&nbsp;</th>
+									<td class="column3" style="text-align:center">{{items}}</td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <button class="login100-form-btn-success" (click)="showHistory()" *ngIf="showHis===false" style="margin-top: 10px; margin-left:450px"  >Show history test</button>
+                </div>
+                <div class="table100" *ngIf="showHis===true" >
+                        <table>
+                            <thead>
+                                <tr class="table100-head" >
+                                    
+                                    <th class="column2" style="text-align:center">Lession name </th>
+                                    <th class="column3" style="text-align:center" >Your Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr *ngFor="let items of arrHis,let i = index">
+                                        <th class="column2" style="text-align:center">{{items.TitleLession}}</th>
+                                        <td class="column3" style="text-align:center" *ngFor="let ques of items.Result ,let j = index">
+                                                {{ques}}</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                        <button class="login100-form-btn-success" (click)="showHistory()" *ngIf="showHis===false" style="margin-top: 10px; margin-left:450px"  >Show history test</button>
+                    </div>
+            </div>
+         </div>
+         
+         </div>
+         
+</body>
+</html>
